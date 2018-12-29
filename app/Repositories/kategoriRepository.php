@@ -30,4 +30,11 @@ class kategoriRepository extends BaseRepository
     {
         return kategori::class;
     }
+
+    public function selectOptions()
+    {
+        return app($this->model())->get()->keyBy('id')->map(function ($kategori) {
+            return $kategori->nama;
+        });
+    }
 }

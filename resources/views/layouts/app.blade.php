@@ -120,7 +120,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    {{ config('app.name') }}
                 </a>
             </div>
 

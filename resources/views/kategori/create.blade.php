@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'kategoris.store']) !!}
+                    {!! Form::open(['route' => 'kategori.store']) !!}
 
-                        @include('kategoris.fields')
+                        @include('kategori.fields')
 
                     {!! Form::close() !!}
                 </div>

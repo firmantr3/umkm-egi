@@ -10,8 +10,8 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('kategoris.show_fields')
-                    <a href="{!! route('kategoris.index') !!}" class="btn btn-default">Back</a>
+                    @include('kategori.show_fields')
+                    <a href="{!! route('kategori.index') !!}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

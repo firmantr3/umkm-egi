@@ -32,7 +32,7 @@ class kategoriController extends AppBaseController
         $this->kategoriRepository->pushCriteria(new RequestCriteria($request));
         $kategoris = $this->kategoriRepository->all();
 
-        return view('kategoris.index')
+        return view('kategori.index')
             ->with('kategoris', $kategoris);
     }
 
@@ -43,7 +43,7 @@ class kategoriController extends AppBaseController
      */
     public function create()
     {
-        return view('kategoris.create');
+        return view('kategori.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class kategoriController extends AppBaseController
 
         Flash::success('Kategori saved successfully.');
 
-        return redirect(route('kategoris.index'));
+        return redirect(route('kategori.index'));
     }
 
     /**
@@ -78,10 +78,10 @@ class kategoriController extends AppBaseController
         if (empty($kategori)) {
             Flash::error('Kategori not found');
 
-            return redirect(route('kategoris.index'));
+            return redirect(route('kategori.index'));
         }
 
-        return view('kategoris.show')->with('kategori', $kategori);
+        return view('kategori.show')->with('kategori', $kategori);
     }
 
     /**
@@ -98,10 +98,10 @@ class kategoriController extends AppBaseController
         if (empty($kategori)) {
             Flash::error('Kategori not found');
 
-            return redirect(route('kategoris.index'));
+            return redirect(route('kategori.index'));
         }
 
-        return view('kategoris.edit')->with('kategori', $kategori);
+        return view('kategori.edit')->with('kategori', $kategori);
     }
 
     /**
@@ -119,14 +119,14 @@ class kategoriController extends AppBaseController
         if (empty($kategori)) {
             Flash::error('Kategori not found');
 
-            return redirect(route('kategoris.index'));
+            return redirect(route('kategori.index'));
         }
 
         $kategori = $this->kategoriRepository->update($request->all(), $id);
 
         Flash::success('Kategori updated successfully.');
 
-        return redirect(route('kategoris.index'));
+        return redirect(route('kategori.index'));
     }
 
     /**
@@ -143,13 +143,13 @@ class kategoriController extends AppBaseController
         if (empty($kategori)) {
             Flash::error('Kategori not found');
 
-            return redirect(route('kategoris.index'));
+            return redirect(route('kategori.index'));
         }
 
         $this->kategoriRepository->delete($id);
 
         Flash::success('Kategori deleted successfully.');
 
-        return redirect(route('kategoris.index'));
+        return redirect(route('kategori.index'));
     }
 }
