@@ -35,6 +35,7 @@ class produkController extends AppBaseController
      */
     public function index(Request $request)
     {
+        // dd(config('auth.guard'));
         $this->produkRepository->pushCriteria(new RequestCriteria($request));
         $produks = $this->produkRepository->all();
 
