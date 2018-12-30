@@ -37,4 +37,17 @@ class kategoriRepository extends BaseRepository
             return $kategori->nama;
         });
     }
+
+    public function indukSelectOptions($current_id = null)
+    {
+        return app($this->model())->induk()
+            ->when($current_id, function($query) use ($current_id) {
+                $query->where('id', '!=', $current_id);
+            })
+            ->get()
+            ->keyBy('id')
+            ->map(function ($kategori) {
+                return $kategori->nama;
+            });
+    }
 }

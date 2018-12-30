@@ -43,7 +43,9 @@ class kategoriController extends AppBaseController
      */
     public function create()
     {
-        return view('kategori.create');
+        $indukKategoriOptions = $this->kategoriRepository->indukSelectOptions();
+
+        return view('kategori.create', compact('indukKategoriOptions'));
     }
 
     /**
@@ -95,13 +97,15 @@ class kategoriController extends AppBaseController
     {
         $kategori = $this->kategoriRepository->findWithoutFail($id);
 
+        $indukKategoriOptions = $this->kategoriRepository->indukSelectOptions($kategori->id);
+
         if (empty($kategori)) {
             Flash::error('Kategori not found');
 
             return redirect(route('kategori.index'));
         }
 
-        return view('kategori.edit')->with('kategori', $kategori);
+        return view('kategori.edit')->with(compact('kategori', 'indukKategoriOptions'));
     }
 
     /**

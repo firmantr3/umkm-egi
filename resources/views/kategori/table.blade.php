@@ -9,6 +9,7 @@
     @foreach($kategoris as $kategori)
         <tr>
             <td>{!! $kategori->nama !!}</td>
+            <td>{!! $kategori->nama !!}</td>
             <td>
                 {!! Form::open(['route' => ['kategori.destroy', $kategori->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

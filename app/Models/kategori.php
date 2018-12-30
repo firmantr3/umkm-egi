@@ -23,7 +23,8 @@ class kategori extends Model
 
 
     public $fillable = [
-        'nama'
+        'nama',
+        'parent_id',
     ];
 
     /**
@@ -32,7 +33,8 @@ class kategori extends Model
      * @var array
      */
     protected $casts = [
-        'nama' => 'string'
+        'nama' => 'string',
+        'parent_id' => 'integer',
     ];
 
     /**
@@ -41,8 +43,20 @@ class kategori extends Model
      * @var array
      */
     public static $rules = [
-        'nama' => 'required|string'
+        'nama' => 'required|string',
+        'parent_id' => 'nullable|integer'
     ];
 
+    public function scopeInduk($query) {
+        return $query->whereNull('parent_id');
+    }
+
+    public function indukan() {
+        return $this->belongsTo('App\Models\kategori', 'parent_id');
+    }
+
+    public function anakans() {
+        return $this->hasMany('App\Models\kategori', 'parent_id', 'id');
+    }
     
 }
