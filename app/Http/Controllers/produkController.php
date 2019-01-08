@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\kategori;
 use App\Repositories\kategoriRepository;
+use Intervention\Image\Facades\Image;
 
 class produkController extends AppBaseController
 {
@@ -67,7 +68,11 @@ class produkController extends AppBaseController
     {
         $filename = md5("produk-{$request->gambar}") . ".{$request->gambar->extension()}";
 
-        $request->file('gambar')->storeAs('public/produk', $filename);
+        $gambar = Image::make($request->file('gambar'))
+            ->fit(200, 200, function($constraint) {
+                $constraint->upsize();
+            })
+            ->save(storage_path('app/public/produk/' . $filename));
 
         $input = $request->except('gambar');
         $input['gambar'] = $filename;
@@ -139,7 +144,18 @@ class produkController extends AppBaseController
             return redirect(route('produk.index'));
         }
 
-        $produk = $this->produkRepository->update($request->all(), $id);
+        $input = $request->except('gambar');
+        if($request->hasFile('gambar')) {
+            $filename = md5("produk-{$request->gambar}") . ".{$request->gambar->extension()}";
+            $gambar = Image::make($request->file('gambar'))
+                ->fit(200, 200, function ($constraint) {
+                    $constraint->upsize();
+                })
+                ->save(storage_path('app/public/produk/' . $filename));
+            $input['gambar'] = $filename;
+        }
+
+        $produk = $this->produkRepository->update($input, $id);
 
         Flash::success('Produk updated successfully.');
 

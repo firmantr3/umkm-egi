@@ -64,7 +64,7 @@ class produk extends Model
         'deskripsi' => 'required|min:5',
         'harga' => 'required|integer',
         'stok' => 'required',
-        'gambar' => 'required',
+        'gambar' => 'nullable|mimes:jpeg,jpg,png',
         'dibeli' => 'nullable'
     ];
 
