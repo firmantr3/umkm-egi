@@ -11,6 +11,16 @@ Route::middleware('auth.admin')->group(function() {
     
     Route::resource('produk', 'produkController');
 
+    Route::resource('customers', 'CustomerController');
+
+    Route::resource('kotas', 'KotaController');
+
+    Route::resource('banks', 'BankController');
+
+    Route::resource('orders', 'OrderController');
+
+    Route::resource('suppliers', 'SupplierController');
+
     $this->post('logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
 });
 

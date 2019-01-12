@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Reviewable;
 
 /**
  * Class produk
@@ -20,7 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class produk extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Reviewable;
 
     public $table = 'produks';
     
