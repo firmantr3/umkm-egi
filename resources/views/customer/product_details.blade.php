@@ -15,24 +15,6 @@
                     <a href="{{ url("storage/produk/{$produk->gambar}") }}" title="{{ $produk->nama }}">
                         <img src="{{ url("storage/produk/{$produk->gambar}") }}" style="width:100%" alt="{{ $produk->nama }}"/>
                     </a>
-                    <div id="differentview" class="moreOptopm carousel slide">
-                        <div class="carousel-inner">
-                        <div class="item active">
-                        <a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt=""/></a>
-                        <a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt=""/></a>
-                        <a href="themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
-                        </div>
-                        <div class="item">
-                        <a href="themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
-                        <a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt=""/></a>
-                        <a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt=""/></a>
-                        </div>
-                        </div>
-                    <!--  
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
-                    -->
-                    </div>
                     
                     <div class="btn-toolbar">
                     <div class="btn-group">
@@ -50,9 +32,9 @@
                         <hr class="soft"/>
                         <form class="form-horizontal qtyFrm">
                         <div class="control-group">
-                            <label class="control-label"><span>Rp {{ $produk->harga }}</span></label>
+                            <label class="control-label"><span>Rp {{ number_format($produk->harga, 0, ',', '.') }}</span></label>
                             <div class="controls">
-                            <input type="number" class="span1" placeholder="Qty."/>
+                            <input type="number" class="span1" value="1" placeholder="Qty."/>
                             <button type="submit" class="btn btn-large btn-primary pull-right"> Tambah ke keranjang <i class=" icon-shopping-cart"></i></button>
                             </div>
                         </div>
