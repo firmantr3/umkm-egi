@@ -22,12 +22,6 @@
     <p>{!! $customer->email_verified_at !!}</p>
 </div>
 
-<!-- Password Field -->
-<div class="form-group">
-    {!! Form::label('password', 'Password:') !!}
-    <p>{!! $customer->password !!}</p>
-</div>
-
 <!-- Alamat Field -->
 <div class="form-group">
     {!! Form::label('alamat', 'Alamat:') !!}

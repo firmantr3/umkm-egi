@@ -38,7 +38,7 @@ class produkController extends AppBaseController
     {
         // dd(config('auth.guard'));
         $this->produkRepository->pushCriteria(new RequestCriteria($request));
-        $produks = $this->produkRepository->all();
+        $produks = $this->produkRepository->paginate(4);
 
         return view('produk.index')
             ->with('produks', $produks);

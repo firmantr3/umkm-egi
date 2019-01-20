@@ -1,3 +1,8 @@
+<form action="/admin/produk" method="GET">
+    <div class="form-group">
+        <input class="form-control" type="text" name="search" placeholder="Pencarian">
+    </div>
+</form>
 <table class="table table-responsive" id="produks-table">
     <thead>
         <tr>
@@ -18,7 +23,7 @@
             <td>{!! $produk->harga !!}</td>
             <td>{!! $produk->stok !!}</td>
             <td>
-                <img src="{{ url("storage/produk/{$produk->gambar}") }}" alt="" class="img-responsive">
+                <img style="height: 100px;" src="{{ url("storage/produk/{$produk->gambar}") }}" alt="" class="img-responsive">
             </td>
             <td>{!! $produk->dibeli !!}</td>
             <td>
@@ -34,3 +39,5 @@
     @endforeach
     </tbody>
 </table>
+
+{{ $produks->links() }}
