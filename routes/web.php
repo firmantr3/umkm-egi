@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PublicController@index')->name('landing');
-Route::get('/katalog', 'PublicController@katalog')->name('katalog');
-Route::get('/produk/{id}', 'PublicController@produkDetail')->name('produk-detail');
+Route::get('/produk', 'PublicController@katalog')->name('katalog');
+Route::get('/produk/{id}/detail', 'PublicController@produkDetail')->name('produk-detail');
 
 Auth::routes();

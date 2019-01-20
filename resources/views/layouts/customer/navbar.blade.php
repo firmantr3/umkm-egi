@@ -17,7 +17,11 @@
 		  <select class="srchTxt" name="kategori">
 			<option value="">Semua Jenis</option>
 			@foreach ($kategoriInduks as $item)
-				<option>{{ $item->nama }}</option>
+				@if (app('request')->kategori === $item->nama)
+					<option selected>{{ $item->nama }}</option>
+				@else
+					<option>{{ $item->nama }}</option>
+				@endif
 			@endforeach
 		</select> 
 		  <button type="submit" id="submitButton" class="btn btn-primary">Cari</button>

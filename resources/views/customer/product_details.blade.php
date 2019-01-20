@@ -7,11 +7,8 @@
         @include('sidebar')
 
 		<div class="span9">
-            <ul class="breadcrumb">
-                <li><a href="{{ url('/') }}">Beranda</a> <span class="divider">/</span></li>
-                <li><a href="#">Produk</a> <span class="divider">/</span></li>
-                <li class="active">Detail Produk</li>
-            </ul>	
+
+            @include('layouts.customer.breadcrumb')
 
             <div class="row">	  
                     <div id="gallery" class="span3">

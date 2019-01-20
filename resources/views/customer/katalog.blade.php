@@ -7,10 +7,9 @@
         @include('sidebar')
 
 	<div class="span9">
-    <ul class="breadcrumb">
-		<li><a href="{{ url('/') }}">Beranda</a> <span class="divider">/</span></li>
-		<li class="active">Katalog Produk</li>
-    </ul>
+        
+        @include('layouts.customer.breadcrumb')
+
 	<h3> Katalog Produk <small class="pull-right"> {{ $produks->total() }} products are available </small></h3>	
 	<hr class="soft"/>
 	<form class="form-horizontal span6">
