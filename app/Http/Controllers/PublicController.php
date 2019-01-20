@@ -30,7 +30,7 @@ class PublicController extends Controller
     public function katalog(Request $request, produkRepository $repo) {
         $produks = $repo->pushCriteria(ProdukKategoriCriteria::class)
             ->pushCriteria(app(RequestCriteria::class))
-            ->paginate(8);
+            ->paginate(9);
 
         return view('customer.katalog')
             ->with(
