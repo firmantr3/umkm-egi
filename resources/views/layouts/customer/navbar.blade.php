@@ -31,30 +31,33 @@
 	 <li class=""><a href="normal.html">Pengiriman</a></li>
 	 <li class=""><a href="contact.html">Kontak</a></li>
 	 <li class="">
-	 <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
-	<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3>Login Akun Anda</h3>
-		  </div>
-		  <div class="modal-body">
-			<form class="form-horizontal loginFrm">
-			  <div class="control-group">								
-				<input type="text" id="inputEmail" placeholder="Email">
-			  </div>
-			  <div class="control-group">
-				<input type="password" id="inputPassword" placeholder="Password">
-			  </div>
-			  <div class="control-group">
-				<label class="checkbox">
-				<input type="checkbox"> Ingat Saya
-				</label>
-			  </div>
-			</form>		
-			<button type="submit" class="btn btn-success">Masuk</button>
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Batal</button>
-		  </div>
-	</div>
+		@if (!auth()->check())
+			<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
+			<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3>Login Akun Anda</h3>
+					</div>
+					<div class="modal-body">
+					<form action="/login" method="POST" class="form-horizontal loginFrm">
+						{{ csrf_field() }}
+						<div class="control-group">								
+						<input name="email" type="text" id="inputEmail" placeholder="Email">
+						</div>
+						<div class="control-group">
+						<input name="password" type="password" id="inputPassword" placeholder="Password">
+						</div>
+						<div class="control-group">
+						<label class="checkbox">
+						<input name="remember" type="checkbox"> Ingat Saya
+						</label>
+						</div>
+						<button type="submit" class="btn btn-success">Masuk</button>
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Batal</button>
+					</form>		
+					</div>
+			</div>
+		@endif
 	</li>
     </ul>
   </div>

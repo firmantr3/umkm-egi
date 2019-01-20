@@ -14,16 +14,16 @@
 			<div class="span3">
 				<h5>INFORMASI</h5>
 				<a href="contact.html">KONTAK</a>  
-				<a href="register.html">REGISTRASI</a>  
+				<a href="{{ url('/register') }}">REGISTRASI</a>  
 				<a href="legal_notice.html">LEGAL NOTICE</a>  
 				<a href="tac.html">SYARAT DAN KETENTUAN</a> 
 				<a href="faq.html">FAQ</a>
 			 </div>
 			<div class="span3">
-				<h5>PENAWARAN</h5>
+				<h5>PRODUK</h5>
+				<a href="{{ route('katalog') }}">KATALOG</a>  
 				<a href="#">PRODUK BARU</a> 
 				<a href="#">PALING LARIS</a>  
-				<a href="special_offer.html">PENAWARAN KHUSUS</a>  
 				<a href="#">PABRIKAN</a> 
 				<a href="#">SUPPLIER</a> 
 			 </div>

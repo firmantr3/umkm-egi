@@ -1,5 +1,7 @@
 @extends('layouts.customer.app')
 
+@section('title', 'Katalog Produk')
+
 @section('content')
     
 	<div class="row">
@@ -10,7 +12,7 @@
         
         @include('layouts.customer.breadcrumb')
 
-	<h3> Katalog Produk <small class="pull-right"> {{ $produks->total() }} products are available </small></h3>	
+	<h3> @yield('title') <small class="pull-right"> {{ $produks->total() }} produk tersedia </small></h3>	
 	<hr class="soft"/>
 	<form class="form-horizontal span6">
 		<div class="control-group">

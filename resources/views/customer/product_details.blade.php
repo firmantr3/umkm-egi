@@ -1,5 +1,7 @@
 @extends('layouts.customer.app')
 
+@section('title', $produk->nama)
+
 @section('content')
     
 	<div class="row">

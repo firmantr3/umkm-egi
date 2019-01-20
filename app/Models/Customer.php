@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class Customer
@@ -16,9 +17,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string alamat
  * @property string telepon
  */
-class Customer extends Model
+class Customer extends Authenticatable
 {
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
 
     public $table = 'customers';
     
