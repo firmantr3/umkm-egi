@@ -11,7 +11,7 @@
 					->get();
 	@endphp
   <div class="navbar-inner">
-    <a class="brand" href="index.html"><img style="height: 50px;" src="/logo.png" alt="Bootsshop"/></a>
+    <a class="brand" href="{{ url('/') }}"><img style="height: 50px;" src="/logo.png" alt="Bootsshop"/></a>
 		<form class="form-inline navbar-search" method="get" action="{{ route('katalog') }}" >
 		<input id="srchFldz" name="search" class="srchTxt" type="text" placeholder="Ketikkan barang yang dicari" />
 		  <select class="srchTxt" name="kategori">
