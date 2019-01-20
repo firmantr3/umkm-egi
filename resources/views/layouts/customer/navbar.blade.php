@@ -5,17 +5,20 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	</a>
+	@php
+			$kategoriInduks = App\Models\kategori::induk()
+					->orderBy('nama')
+					->get();
+	@endphp
   <div class="navbar-inner">
-    <a class="brand" href="index.html"><img style="height: 50px;" src="logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="products.html" >
-		<input id="srchFldz" class="srchTxt" type="text" placeholder="Ketikkan barang yang dicari" />
-		  <select class="srchTxt">
-			<option>Semua Jenis</option>
-			<option>CLOTHES </option>
-			<option>FOOD AND BEVERAGES </option>
-			<option>HEALTH & BEAUTY </option>
-			<option>SPORTS & LEISURE </option>
-			<option>BOOKS & ENTERTAINMENTS </option>
+    <a class="brand" href="index.html"><img style="height: 50px;" src="/logo.png" alt="Bootsshop"/></a>
+		<form class="form-inline navbar-search" method="get" action="{{ route('katalog') }}" >
+		<input id="srchFldz" name="search" class="srchTxt" type="text" placeholder="Ketikkan barang yang dicari" />
+		  <select class="srchTxt" name="kategori">
+			<option value="">Semua Jenis</option>
+			@foreach ($kategoriInduks as $item)
+				<option>{{ $item->nama }}</option>
+			@endforeach
 		</select> 
 		  <button type="submit" id="submitButton" class="btn btn-primary">Cari</button>
     </form>

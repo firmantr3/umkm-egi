@@ -20,7 +20,7 @@ class produkRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nama',
+        'nama' => 'like',
         'harga'
     ];
 

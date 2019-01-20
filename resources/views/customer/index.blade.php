@@ -28,10 +28,10 @@
 										@if (now()->diffInDays($produk->created_at, false) > -7)
 											<i class="tag"></i>
 										@endif
-										<a href="product_details.html"><img src="{{ url("storage/produk/{$produk->gambar}") }}" alt=""></a>
+										<a href="{{ route('produk-detail', ['id' => $produk->id]) }}"><img src="{{ url("storage/produk/{$produk->gambar}") }}" alt=""></a>
 										<div class="caption">
 											<h5>{{ $produk->nama }}</h5>
-											<h4><a class="btn" href="product_details.html">DETAIL</a> <span class="pull-right">{{ number_format($produk->harga, 0, ',', '.') }}</span></h4>
+											<h4><a class="btn" href="{{ route('produk-detail', ['id' => $produk->id]) }}">DETAIL</a> <span class="pull-right">{{ number_format($produk->harga, 0, ',', '.') }}</span></h4>
 										</div>
 									</div>
 								</li>

@@ -58,5 +58,9 @@ class kategori extends Model
     public function anakans() {
         return $this->hasMany('App\Models\kategori', 'parent_id', 'id');
     }
+
+    public function getIsIndukAttribute() {
+        return $this->parent_id === null;
+    }
     
 }

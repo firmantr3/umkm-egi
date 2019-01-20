@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\produk;
+use App\Repositories\produkRepository;
+use App\Criteria\ProdukKategoriCriteria;
+use Prettus\Repository\Criteria\RequestCriteria;
 
 class PublicController extends Controller
 {
@@ -21,6 +24,28 @@ class PublicController extends Controller
                 'produkAndalanMax',
                 'produkAndalanPerPage',
                 'produkTerbarus',
+            ]));
+    }
+
+    public function katalog(Request $request, produkRepository $repo) {
+        $produks = $repo->pushCriteria(ProdukKategoriCriteria::class)
+            ->pushCriteria(app(RequestCriteria::class))
+            ->paginate(8);
+
+        return view('customer.katalog')
+            ->with(
+                compact([
+                    'produks'
+                ])
+            );
+    }
+
+    public function produkDetail($id) {
+        $produk = produk::find($id);
+
+        return view('customer.product_details')
+            ->with(compact([
+                'produk',
             ]));
     }
 }
