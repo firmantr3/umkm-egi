@@ -22,8 +22,8 @@
 			<div class="span3">
 				<h5>PRODUK</h5>
 				<a href="{{ route('katalog') }}">KATALOG</a>  
-				<a href="#">PRODUK BARU</a> 
-				<a href="#">PALING LARIS</a>  
+				<a href="{{ route('katalog', ['orderBy' => 'created_at', 'sortedBy' => 'desc']) }}">PRODUK BARU</a> 
+				<a href="{{ route('katalog', ['orderBy' => 'dibeli', 'sortedBy' => 'desc']) }}">PALING LARIS</a>  
 				<a href="#">PABRIKAN</a> 
 				<a href="#">SUPPLIER</a> 
 			 </div>

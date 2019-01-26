@@ -65,5 +65,8 @@ class Customer extends Authenticatable
         'kota_id' => 'required',
     ];
 
+    public function kota() {
+        return $this->belongsTo('App\Models\Kota');
+    }
     
 }

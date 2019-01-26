@@ -72,7 +72,7 @@
                     <p> 
                         {{ str_limit($produk->deskripsi, 100) }}
                     </p>
-                    <h4 style="text-align:center"><a class="btn" href="{{ route('produk-detail', ['id' => $produk->id]) }}"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Tambah <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">Rp {{ number_format($produk->harga, 0, ',', '.') }}</a></h4>
+                    <h4 style="text-align:center"><a class="btn" href="{{ route('produk-detail', ['id' => $produk->id]) }}"> <i class="icon-zoom-in"></i></a> <a class="btn" href="{{ route('keranjang.add', ['id' => $produk->id]) }}">Tambah <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">Rp {{ number_format($produk->harga, 0, ',', '.') }}</a></h4>
                     </div>
                 </div>
                 </li>

@@ -7,6 +7,7 @@ use App\Models\produk;
 use App\Repositories\produkRepository;
 use App\Criteria\ProdukKategoriCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
+use App\Services\KeranjangService;
 
 class PublicController extends Controller
 {
@@ -47,5 +48,29 @@ class PublicController extends Controller
             ->with(compact([
                 'produk',
             ]));
+    }
+
+    public function showKeranjangBelanja(KeranjangService $keranjang) {
+        return view('customer.keranjang');
+    }
+
+    public function addToKeranjang(Request $request) {
+        app('keranjang')->add($request->id, $request->input('qty', 1));
+
+        return redirect()->route('keranjang');
+    }
+
+    public function delFromKeranjang(Request $request)
+    {
+        app('keranjang')->del($request->id, $request->input('qty', 1));
+
+        return redirect()->route('keranjang');
+    }
+
+    public function decFromKeranjang(Request $request)
+    {
+        app('keranjang')->decrement($request->id, $request->input('qty', 1));
+
+        return redirect()->route('keranjang');
     }
 }

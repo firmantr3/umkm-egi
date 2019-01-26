@@ -15,5 +15,7 @@
         @endif
     @elseif  ($request->is('register'))
 		<li class="active">Register</li>
+    @elseif  ($request->is('keranjang'))
+		<li class="active">Keranjang Belanja</li>
     @endif
 </ul>	

@@ -2,10 +2,10 @@
 <!-- Sidebar ================================================== -->
 	<div id="sidebar" class="span3">
 		<div class="well well-small">
-            <a id="myCart" href="product_summary.html">
+            <a id="myCart" href="{{ route('keranjang') }}">
                 <img src="/customer/themes/images/ico-cart.png" alt="cart">
-                3 Item di keranjang
-                <span class="badge badge-warning pull-right">Rp 150.000</span>
+                {{ app('keranjang')->itemCount() }} Item di keranjang
+                <span class="badge badge-warning pull-right">Rp {{ number_format(app('keranjang')->totalCount(), 0, '.', ',') }}</span>
             </a>
         </div>
 

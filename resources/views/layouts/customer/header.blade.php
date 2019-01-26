@@ -19,8 +19,12 @@
 	</div>
 	<div class="span6">
 	<div class="pull-right">
-		<span class="btn btn-mini">Rp 150.000,-</span>
-		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Produk di keranjang anda </span> </a> 
+		<span class="btn btn-mini">Rp {{ number_format(app('keranjang')->totalCount(), 0, '.', ',') }}</span>
+		<a href="{{ route('keranjang') }}">
+			<span class="btn btn-mini btn-primary">
+				<i class="icon-shopping-cart icon-white"></i> [ {{ app('keranjang')->itemCount() }} ] Produk di keranjang anda 
+			</span> 
+		</a> 
 	</div>
 	</div>
 </div>
